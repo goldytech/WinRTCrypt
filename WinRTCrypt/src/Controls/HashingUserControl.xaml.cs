@@ -31,35 +31,33 @@ namespace WinrtCrypto.Controls
         /// <summary>
         /// Gets the input string , hash it and then encode it in base64
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private async void BtnHashConvert_Tapped(object sender, TappedRoutedEventArgs e)
+        /// <param name="sender">Sender Object</param>
+        /// <param name="e">Tapped Routed Event Args</param>
+        private async void BtnHashConvertTapped(object sender, TappedRoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(this.TxtInput.Text))
+            if (string.IsNullOrEmpty(this.TxtInput.Text))
             {
-                // get the raw input string
-                var textToBeHashed = this.TxtInput.Text;
-                
-                // convert string into binary
-                var inputBuffer = CryptographicBuffer.ConvertStringToBinary(textToBeHashed, BinaryStringEncoding.Utf8);
-                // declare sha512
-                var sha512Hash = HashAlgorithmProvider.OpenAlgorithm(HashAlgorithmNames.Sha512);
-                
-                // hash the binary data using SHA512 algorithm
-                var hashedData = sha512Hash.HashData(inputBuffer);
-                
-                //encode the hashdata to Base64 format
-                var encodeToBase64String = CryptographicBuffer.EncodeToBase64String(hashedData);
-                var msgDialog = new MessageDialog(encodeToBase64String);
-                
-                //show the output in message dialog
-                var msg = await msgDialog.ShowAsync();
-
-                
+                return;
             }
 
-            
-        }
+            // get the raw input string
+            var textToBeHashed = this.TxtInput.Text;
+                
+            // convert string into binary
+            var inputBuffer = CryptographicBuffer.ConvertStringToBinary(textToBeHashed, BinaryStringEncoding.Utf8);
 
+            // declare sha512
+            var sha512Hash = HashAlgorithmProvider.OpenAlgorithm(HashAlgorithmNames.Sha512);
+                
+            // hash the binary data using SHA512 algorithm
+            var hashedData = sha512Hash.HashData(inputBuffer);
+
+            // encode the hashdata to Base64 format
+            var encodeToBase64String = CryptographicBuffer.EncodeToBase64String(hashedData);
+            var msgDialog = new MessageDialog(encodeToBase64String);
+                
+            // show the output in message dialog
+            var msg = await msgDialog.ShowAsync();
+        }
     }
 }

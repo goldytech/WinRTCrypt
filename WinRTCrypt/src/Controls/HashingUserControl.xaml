@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Input Text" FontSize="25" Margin="10" Grid.Row="0" Grid.Column="0" x:Name="TxtInput"></TextBlock>
         <TextBox Grid.Row="0" Grid.Column="1" Width="450" Height="50" FontSize="30" AcceptsReturn="True" Margin="10"></TextBox>
-        <Button Grid.Row="1" Content="Hash it and encode Base64 Format" FontSize="20" Grid.Column="0" Margin="10" x:Name="BtnHashConvert" Tapped="BtnHashConvert_Tapped" Grid.ColumnSpan="2" HorizontalAlignment="Center"></Button>
+        <Button Grid.Row="1" Content="Hash it and encode Base64 Format" FontSize="20" Grid.Column="0" Margin="10" x:Name="BtnHashConvert" Tapped="BtnHashConvertTapped" Grid.ColumnSpan="2" HorizontalAlignment="Center"></Button>
        
         
     </Grid>

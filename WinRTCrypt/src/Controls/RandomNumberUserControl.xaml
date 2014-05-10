@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Byte Array Length" Grid.Row="0" Grid.Column="0" FontSize="20" Margin="10"></TextBlock>
         <TextBox Grid.Row="0" Grid.Column="1" x:Name="TxtLength" InputScope="NumberFullWidth" Margin="10"></TextBox>
-        <Button Grid.Row="1" Content="Generate 32 bits unsigned Random Integer" Margin="10" FontSize="15" Grid.Column="0" Tapped="Button_Tapped"></Button>
-        <Button Grid.Row="1" Content="Generate Random Byte Array and Encode in Hex" Margin="10" FontSize="15" Grid.Column="1" Tapped="Button_Tapped_1"></Button>
+        <Button Grid.Row="1" Content="Generate 32 bits unsigned Random Integer" Margin="10" FontSize="15" Grid.Column="0" Tapped="GenerateRandomNumber"></Button>
+        <Button Grid.Row="1" Content="Generate Random Byte Array and Encode in Hex" Margin="10" FontSize="15" Grid.Column="1" Tapped="GenerateRandomArray"></Button>
     </Grid>
 </UserControl>

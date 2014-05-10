@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -27,26 +18,43 @@ namespace WinrtCrypto.Controls
             this.InitializeComponent();
         }
 
-        private async void Button_Tapped(object sender, TappedRoutedEventArgs e)
+        /// <summary>
+        /// The generate random number.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        private async void GenerateRandomNumber(object sender, TappedRoutedEventArgs e)
         {
+            // generate random number and show it is message dialog.
             var msgDialog = new MessageDialog(CryptographicBuffer.GenerateRandomNumber().ToString());
             var msg = await msgDialog.ShowAsync();
             
         }
 
-        private void Button_Tapped_1(object sender, TappedRoutedEventArgs e)
+        /// <summary>
+        /// Generates the random byte array
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The EventArgs</param>
+        void GenerateRandomArray(object sender, TappedRoutedEventArgs e)
         {
             uint len;
-            if (uint.TryParse(this.TxtLength.Text,out len))
+            if (uint.TryParse(this.TxtLength.Text, out len))
             {
-               
+                // generate the random byte array of specified length.
                 var buffer = CryptographicBuffer.GenerateRandom(len);
+
+                // convert the buffer (byte array) into hexadecimal format and show it in message dialog
                 var msgDialog = new MessageDialog(CryptographicBuffer.EncodeToHexString(buffer));
                 msgDialog.ShowAsync();
-
             }
             else
             {
+                // user inputted invalid number show the message and set back the focus
                 new MessageDialog("Invalid number").ShowAsync();
                 this.TxtLength.Focus(FocusState.Keyboard);
             }
