@@ -1,0 +1,30 @@
+﻿<UserControl
+    x:Class="WinrtCrypto.Controls.SymetericEncryptionUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinrtCrypto.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    
+    <Grid>
+<Grid.RowDefinitions>
+    <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Plain Text" FontSize="15" Margin="15" Grid.Row="0" Grid.Column="0" ></TextBlock>
+        <TextBox Grid.Row="0" Grid.Column="1" Width="200" Margin="10" FontSize="20" x:Name="TxtPlain"></TextBox>
+        <TextBlock Text="Cipher Text" FontSize="15" Margin="15" Grid.Row="1" Grid.Column="0" />
+        <TextBox Grid.Row="1" Grid.Column="1" Width="200" Margin="10" x:Name="TxtCipher" FontSize="20" IsReadOnly="True" />
+        <Button Content="Encrypt" Grid.Row="2" Grid.Column="0" Margin="10" Tapped="Button_Tapped" />
+        <Button Content="Decrypt" Grid.Row="2" Grid.Column="1" Margin="10" Tapped="ButtonTapped1" />
+    </Grid>
+
+</UserControl>
